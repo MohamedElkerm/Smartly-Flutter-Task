@@ -6,10 +6,10 @@ class Api {
   Future<dynamic> get({required String url}) async {
     http.Response response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
-      print('/////////// Get Done');
+      // print('/////////// Get Done');
       return jsonDecode(response.body);
     } else {
-      print('/////////// Get Not Done');
+      // print('/////////// Get Not Done');
       throw Exception(
           'There is a problem with status code ${response.statusCode}'
       );

@@ -5,7 +5,7 @@ import 'start_point.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  Bloc.observer = MyBlocObserver();
+  // Bloc.observer = MyBlocObserver();
   runApp(const StoreApp());
 }
 

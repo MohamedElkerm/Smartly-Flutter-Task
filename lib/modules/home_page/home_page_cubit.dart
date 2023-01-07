@@ -15,9 +15,9 @@ class HomePageCubit extends Cubit<HomePageState> {
       for (int i = 0; i < value.length; ++i) {
         productList.add(ProductModel.fromJson(value[i]));
       }
-      print('Success Get Data');
+      // print('Success Get Data');
       emit(GetAllProductSuccess());
-      print('Success Get Data*****************');
+      // print('Success Get Data*****************');
     }).catchError((err){
       emit(GetAllProductError());
     });

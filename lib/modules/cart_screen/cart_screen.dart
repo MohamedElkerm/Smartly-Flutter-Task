@@ -11,13 +11,24 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+
   @override
   Widget build(BuildContext context) {
     List<ProductModel> myProducts =
         ModalRoute.of(context)!.settings.arguments as List<ProductModel>;
+    double sum = 0.0;
+    void sumOfProducts(){
+      for(int i=0;i<myProducts.length;++i){
+        setState(() {
+          sum+=myProducts[i].price;
+        });
+      }
+    }
     if (myProducts.isEmpty) {
       return  Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: Text(sum.toString()),
+        ),
         body:const Center(
           child: CircularProgressIndicator(),
         ),
@@ -31,6 +42,7 @@ class _CartScreenState extends State<CartScreen> {
               return productFavorite(myProducts[item], context,(){
                 setState(() {
                   myProducts.removeAt(item);
+                  sumOfProducts();
                 });
               });
             }),
