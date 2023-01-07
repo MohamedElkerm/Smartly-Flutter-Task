@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store_app/core/utils/app_colors.dart';
+import 'package:store_app/core/utils/constants.dart';
 import 'package:store_app/models/product_model.dart';
 
 class ProductScreen extends StatelessWidget {
@@ -12,9 +13,13 @@ class ProductScreen extends StatelessWidget {
     ProductModel productModel =
         ModalRoute.of(context)!.settings.arguments as ProductModel;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: isDark?Colors.black:Color(0xffEAEAE8),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: isDark ? Colors.black :Color(0xffEAEAE8) ,
+          leading: IconButton(
+              onPressed: (){Navigator.pop(context);},
+              icon: Icon(Icons.arrow_back),
+              color: isDark ? Colors.white : Colors.black)
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -25,6 +30,7 @@ class ProductScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(15.0),
                 child: Container(
                   decoration: BoxDecoration(
+                    color: isDark ?Colors.white :Colors.white ,
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(color: AppColors.primary, width: 3)),
                   width: double.infinity,
@@ -38,6 +44,7 @@ class ProductScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(15.0),
                 child: Container(
                   decoration: BoxDecoration(
+                    color: isDark ?Colors.white :Colors.white,
                     border: Border.all(width: 3, color: Colors.grey),
                     borderRadius: BorderRadius.circular(8),
                   ),

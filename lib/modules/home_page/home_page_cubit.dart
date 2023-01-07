@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:store_app/core/utils/constants.dart';
 import 'package:store_app/helper/remote/api.dart';
 import 'package:store_app/models/product_model.dart';
 
@@ -8,6 +9,11 @@ part 'home_page_state.dart';
 class HomePageCubit extends Cubit<HomePageState> {
   HomePageCubit() : super(HomePageInitial());
   ProductModel? productModel ;
+
+   toggleBetweenDarkAndLight(){
+    isDark = !isDark;
+    emit(ToggleIsHappen());
+  }
 
   Future<List<ProductModel>>? getAllProducts() async {
     List<ProductModel> productList = [];

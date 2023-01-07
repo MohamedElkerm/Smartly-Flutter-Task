@@ -12,3 +12,4 @@ class GetAllProductLoading extends HomePageState {}
 class AddProductCartSuccess extends HomePageState {}
 class AddProductCartLoading extends HomePageState {}
 class AddProductCartError extends HomePageState {}
+class ToggleIsHappen extends HomePageState {}

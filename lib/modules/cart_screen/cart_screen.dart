@@ -1,6 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/core/utils/constants.dart';
 import 'package:store_app/helper/widgets/product_card.dart';
 import 'package:store_app/models/product_model.dart';
 import 'package:store_app/modules/cart_screen/cart_screen_cubit.dart';
@@ -27,7 +28,14 @@ class _CartScreenState extends State<CartScreen> {
           var myBloc = BlocProvider.of<CartScreenCubit>(context);
           myBloc.myProductsBloc = myProducts;
           return Scaffold(
-            appBar: AppBar(),
+            backgroundColor: isDark?Colors.black:Color(0xffEAEAE8),
+            appBar: AppBar(
+                backgroundColor: isDark ? Colors.black :Color(0xffEAEAE8) ,
+                leading: IconButton(
+                    onPressed: (){Navigator.pop(context);},
+                    icon: Icon(Icons.arrow_back),
+                    color: isDark ? Colors.white : Colors.black)
+            ),
             body: ConditionalBuilder(
               condition: myProducts.isEmpty,
               builder: (context) => const Center(

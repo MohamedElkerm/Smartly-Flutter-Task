@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store_app/core/utils/app_colors.dart';
+import 'package:store_app/core/utils/app_strings_en.dart';
+import 'package:store_app/core/utils/constants.dart';
 import 'package:store_app/helper/widgets/order_delivery_summary.dart';
 import 'package:store_app/helper/widgets/payment_method.dart';
 import 'package:store_app/helper/widgets/text_form_field.dart';
@@ -18,19 +20,27 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
   Widget build(BuildContext context) {
     double total = ModalRoute.of(context)!.settings.arguments as double;
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: isDark ? Colors.black :Color(0xffEAEAE8) ,
+
+      appBar: AppBar(
+          backgroundColor: isDark ? Colors.black :Color(0xffEAEAE8) ,
+          leading: IconButton(
+              onPressed: (){Navigator.pop(context);},
+              icon: Icon(Icons.arrow_back),
+              color: isDark ? Colors.white : Colors.black)
+      ),
       body:  SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Shipping address',style:TextStyle(fontSize: 25),),
+              Text(AppStringsEn.shippingAddress,style: TextStyle(fontSize: 25,color: isDark?AppColors.primary:AppColors.black),),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 25),
                 child: defaultFormField(controller: _addressController, label: 'address', type: TextInputType.streetAddress),
               ),
-              const Text('Payments methods',style:TextStyle(fontSize: 25),),
+               Text(AppStringsEn.paymentsMethods,style: TextStyle(fontSize: 25,color: isDark?AppColors.primary:AppColors.black),),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Wrap(
@@ -41,9 +51,9 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                   ],
                 ),
               ),
-              rowOfOrder(total, 'Order:'),
-              rowOfOrder(15, 'Delivery:'),
-              rowOfOrder(total+15, 'Summary:'),
+              rowOfOrder(total, AppStringsEn.order),
+              rowOfOrder(15, AppStringsEn.delivery),
+              rowOfOrder(total+15, AppStringsEn.summary),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: GestureDetector(
@@ -55,7 +65,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                     ),
                     width: double.infinity,
                     height: 65,
-                    child:const Center(child: Text('Submit Order',style: TextStyle(fontSize: 20),),),
+                    child: Center(child: Text(AppStringsEn.submitOrder,style:const TextStyle(fontSize: 20),),),
                   ),
                   //TODO: here we will submit the order
                   onTap: (){},

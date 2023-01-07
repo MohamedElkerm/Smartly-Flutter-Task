@@ -22,7 +22,8 @@ class StoreApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: appLightTheme(),
-      darkTheme:appDarkTheme() ,
+      //dark mode with the device mode
+      // darkTheme:appDarkTheme() ,
     );
   }
 }

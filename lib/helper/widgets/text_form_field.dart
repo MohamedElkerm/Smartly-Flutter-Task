@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/core/utils/constants.dart';
 
 Widget defaultFormField({
   //Validation is not correct
@@ -20,12 +21,12 @@ Widget defaultFormField({
       padding: const EdgeInsets.all(0.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color:isDark ?Colors.white :Colors.white,
           borderRadius: BorderRadius.circular(
             20.0,
           ),
           border: Border.all(
-            color: Colors.grey,
+            color:isDark ?Colors.black :Colors.white ,
           ),
         ),
         padding: const EdgeInsets.symmetric(
