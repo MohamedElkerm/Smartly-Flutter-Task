@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store_app/config/themes/app_theme_dark_mode.dart';
 import 'package:store_app/config/themes/app_theme_light_mode.dart';
+import 'package:store_app/modules/cart_screen/cart_screen.dart';
 import 'package:store_app/modules/home_page/home_page.dart';
 import 'package:store_app/modules/product_screen/product_screen.dart';
 
@@ -14,6 +15,7 @@ class StoreApp extends StatelessWidget {
       routes: {
         HomePage.id : (context)=>const HomePage(),
         ProductScreen.id : (context)=>const ProductScreen(),
+        CartScreen.id : (context)=>const CartScreen(),
       },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',

@@ -9,7 +9,6 @@ class HomePageCubit extends Cubit<HomePageState> {
   HomePageCubit() : super(HomePageInitial());
   ProductModel? productModel ;
 
-
   Future<List<ProductModel>>? getAllProducts() async {
     List<ProductModel> productList = [];
     await Api().get(url: 'https://fakestoreapi.com/products').then((value) {
@@ -23,5 +22,11 @@ class HomePageCubit extends Cubit<HomePageState> {
       emit(GetAllProductError());
     });
     return productList;
+  }
+
+  List<ProductModel> myProducts = [];
+  addProductToCart(ProductModel productModel){
+    myProducts.add(productModel);
+    emit(AddProductCartSuccess());
   }
 }

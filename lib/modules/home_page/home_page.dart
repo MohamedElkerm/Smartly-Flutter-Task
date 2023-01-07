@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
         builder: (context, state) {
           var myBloc = BlocProvider.of<HomePageCubit>(context);
           return Scaffold(
-            appBar: myAppBar(),
+            appBar: myAppBar(context , myBloc.myProducts),
             body: Padding(
               padding: const EdgeInsets.only(top: 50, bottom: 50),
               child: FutureBuilder<List<ProductModel>>(
@@ -31,7 +31,9 @@ class HomePage extends StatelessWidget {
                       itemCount: snapshot.data!.length,
                       itemBuilder: (context, item) {
                         return GestureDetector(
-                          child: productCard(snapshot.data![item], context),
+                          child: productCard(snapshot.data![item], context, () {
+                            myBloc.addProductToCart(snapshot.data![item]);
+                          }),
                           onTap: () {
                             myBloc.productModel = snapshot.data![item];
                             Navigator.pushNamed(
