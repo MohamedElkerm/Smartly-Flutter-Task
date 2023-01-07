@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/config/themes/app_theme_dark_mode.dart';
+import 'package:store_app/config/themes/app_theme_light_mode.dart';
 import 'package:store_app/modules/home_page/home_page.dart';
-import 'package:store_app/modules/product_screen/update_product_page.dart';
+import 'package:store_app/modules/product_screen/product_screen.dart';
 
 class StoreApp extends StatelessWidget {
   const StoreApp({super.key});
@@ -8,18 +10,15 @@ class StoreApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
       initialRoute: HomePage.id,
       routes: {
         HomePage.id : (context)=>const HomePage(),
-        UpdateProductPage.id : (context)=> UpdateProductPage(),
+        ProductScreen.id : (context)=>const ProductScreen(),
       },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xFFFFFFFF),
-        primarySwatch: Colors.grey,
-      ),
+      theme: appLightTheme(),
+      darkTheme:appDarkTheme() ,
     );
   }
 }
