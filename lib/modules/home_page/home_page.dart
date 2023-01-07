@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store_app/helper/widgets/product_cart.dart';
 import 'package:store_app/models/product_model.dart';
+import 'package:store_app/modules/product_screen/update_product_page.dart';
 import 'package:store_app/services/get_all_products.dart';
 
 class HomePage extends StatelessWidget {
@@ -42,7 +43,16 @@ class HomePage extends StatelessWidget {
                     crossAxisSpacing: 50,
                     mainAxisSpacing: 60),
                 itemBuilder: (context, item) {
-                  return productCard(snapshot.data![item],context);
+                  return GestureDetector(
+                    child: productCard(snapshot.data![item], context),
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        UpdateProductPage.id,
+                        arguments: snapshot.data![item],
+                      );
+                    },
+                  );
                 },
               );
             } else {

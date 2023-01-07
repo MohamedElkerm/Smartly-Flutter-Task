@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:store_app/modules/home_page.dart';
-import 'package:store_app/modules/update_product_page.dart';
+import 'package:store_app/modules/home_page/home_page.dart';
+import 'package:store_app/modules/product_screen/update_product_page.dart';
 
 class StoreApp extends StatelessWidget {
   const StoreApp({super.key});

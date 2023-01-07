@@ -11,7 +11,8 @@ class Api {
     } else {
       print('/////////// Get Not Done');
       throw Exception(
-          'There is a problem with status code ${response.statusCode}');
+          'There is a problem with status code ${response.statusCode}'
+      );
     }
   }
 
